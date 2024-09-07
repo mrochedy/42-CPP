@@ -6,12 +6,13 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:24:04 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 14:30:55 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/07 14:21:54 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <ctime>
 #include <cstdio>
@@ -42,20 +43,25 @@ Account::~Account() {
 		<< _amount << ";closed" << std::endl;
 }
 
+std::string int_to_string(int nb, std::size_t minimum_size) {
+	std::stringstream ss;
+	ss << nb;
+
+	std::string str_nb = ss.str();
+
+	if (str_nb.size() < minimum_size)
+        return std::string(minimum_size - str_nb.size(), '0') + str_nb;
+    return str_nb;
+}
+
 void Account::_displayTimestamp() {
 	std::time_t now = std::time(0);
 	struct tm* localTime = std::localtime(&now);
-	char timestamp[16];
 
-	std::sprintf(timestamp, "%04d%02d%02d_%02d%02d%02d",
-		localTime->tm_year + 1900,
-		localTime->tm_mon + 1,
-		localTime->tm_mday,
-		localTime->tm_hour,
-		localTime->tm_min,
-		localTime->tm_sec);
-
-	std::cout << '[' << timestamp << "] ";
+	std::cout << '[' << int_to_string(localTime->tm_year + 1900, 4)
+		<< int_to_string(localTime->tm_mon + 1, 2) << int_to_string(localTime->tm_mday, 2)
+		<< '_' << int_to_string(localTime->tm_hour, 2) << int_to_string(localTime->tm_min, 2)
+		<< int_to_string(localTime->tm_sec, 2) << "] ";
 }
 
 int Account::getNbAccounts() {
