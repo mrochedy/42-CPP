@@ -6,35 +6,42 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:12:29 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/09 11:36:59 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:10:10 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
+FragTrap::FragTrap()
+		: ClapTrap()
+{
 	std::cout << "FragTrap default constructor called" << std::endl;
-	_name = "FragTrap";
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string name) {
-	std::cout << "FragTrap parameterized constructor called" << std::endl;
-	_name = name;
+FragTrap::FragTrap(std::string name)
+		: ClapTrap(name)
+{
+	std::cout << "FragTrap(" << name << ") constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &fragtrap) {
+FragTrap::FragTrap(const FragTrap &other)
+		: ClapTrap(other)
+{
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	*this = fragtrap;
+	*this = other;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &fragtrap) {
-	this->_name = fragtrap._name;
+FragTrap &FragTrap::operator=(const FragTrap &rhs) {
+	if (this != &rhs) {
+		ClapTrap::operator=(rhs);
+		this->_name = rhs._name;
+	}
 	return *this;
 }
 

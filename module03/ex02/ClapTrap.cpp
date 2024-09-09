@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 14:53:19 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/08 15:32:14 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:08:47 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 ClapTrap::ClapTrap() {
 	std::cout << "ClapTrap default constructor called" << std::endl;
-	_name = "ClapTrap";
+	_name = "default";
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(std::string name) {
-	std::cout << "ClapTrap parameterized constructor called" << std::endl;
+	std::cout << "ClapTrap(" << name << ") constructor called" << std::endl;
 	_name = name;
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 0;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap) {
-	this->_name = claptrap._name;
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
+	this->_name = rhs._name;
 	return *this;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &claptrap) {
+ClapTrap::ClapTrap(const ClapTrap &other) {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
-	*this = claptrap;
+	*this = other;
 }
 
 ClapTrap::~ClapTrap() {
