@@ -6,35 +6,42 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:20:21 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/09 10:51:01 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:06:14 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {
+ScavTrap::ScavTrap()
+		: ClapTrap()
+{
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	_name = "ScavTrap";
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name) {
-	std::cout << "ScavTrap parameterized constructor called" << std::endl;
-	_name = name;
+ScavTrap::ScavTrap(std::string name)
+		: ClapTrap(name)
+{
+	std::cout << "ScavTrap(" << name << ") constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scavtrap) {
+ScavTrap::ScavTrap(const ScavTrap &other)
+		: ClapTrap(other)
+{
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	*this = scavtrap;
+	*this = other;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &scavtrap) {
-	this->_name = scavtrap._name;
+ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
+	if (this != &rhs) {
+		ClapTrap::operator=(rhs);
+		this->_name = rhs._name;
+	}
 	return *this;
 }
 
@@ -55,5 +62,5 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;
 }
