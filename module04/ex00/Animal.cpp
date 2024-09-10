@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 15:17:56 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/09 15:59:29 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:14:12 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ Animal::Animal() {
 }
 
 Animal::Animal(const Animal &other) {
-	_type = other._type;
+	*this = other;
 	std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &rhs) {
 	if (this != &rhs)
-		*this = rhs;
+		this->_type = rhs._type;
 	return *this;
 }
 
