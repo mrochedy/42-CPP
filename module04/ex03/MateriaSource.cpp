@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:05:36 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/10 14:20:22 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:30:33 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ MateriaSource::MateriaSource() : IMateriaSource() {
 	for (int i = 0; i < 4; i++)
 		_templates[i] = NULL;
 
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	// std::cout << "MateriaSource default constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other) {
@@ -24,7 +24,7 @@ MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
 		_templates[i] = NULL;
 	*this = other;
 
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+	// std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
@@ -49,7 +49,7 @@ MateriaSource::~MateriaSource() {
 		if (_templates[i])
 			delete _templates[i];
 
-	std::cout << "Character destructor called" << std::endl;
+	// std::cout << "MateriaSource destructor called" << std::endl;
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {
@@ -63,13 +63,14 @@ void MateriaSource::learnMateria(AMateria *materia) {
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	int i = 0;
+	AMateria *tmp;
 
-	for (; i < 4; i++)
-		if (_templates[i] == NULL)
-			break ;
-	for (; i >= 0; i--)
-		if (_templates[i]->getType() == type)
-			return (_templates[i]);
+	for (int i = 3; i >= 0; i--) {
+		if (_templates[i] && _templates[i]->getType() == type) {
+			tmp = _templates[i];
+			_templates[i] = NULL;
+			return (tmp);
+		}
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:57:11 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/10 18:26:07 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 12:00:56 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Character : public ICharacter
 	private:
 		std::string _name;
 		AMateria *_inventory[4];
+		AMateria *_floor[1000];
 };
 
 #endif

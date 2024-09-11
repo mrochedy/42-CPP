@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:39:21 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/10 18:24:31 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:31:37 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Cure::Cure() : AMateria("cure") {
 	_type = "cure";
 
-	std::cout << "Cure default constructor called" << std::endl;
+	// std::cout << "Cure default constructor called" << std::endl;
 }
 
 Cure::Cure(const Cure &other) : AMateria(other) {
 	*this = other;
 
-	std::cout << "Cure copy constructor called" << std::endl;
+	// std::cout << "Cure copy constructor called" << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &other) {
@@ -30,11 +30,11 @@ Cure &Cure::operator=(const Cure &other) {
 }
 
 Cure::~Cure() {
-	std::cout << "Cure destructor called" << std::endl;
+	// std::cout << "Cure destructor called" << std::endl;
 }
 
 void Cure::use(ICharacter& target) {
-	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 AMateria* Cure::clone() const {
