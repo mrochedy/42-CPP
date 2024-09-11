@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 16:05:23 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 16:30:36 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:39:36 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class HumanA {
 		HumanA(std::string name, Weapon &weapon);
 		void attack();
 	private:
-		Weapon *_weapon;
+		Weapon &_weapon;
 		std::string _name;
 };
 

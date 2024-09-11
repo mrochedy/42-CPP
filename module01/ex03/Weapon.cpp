@@ -6,20 +6,20 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 15:56:35 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 16:23:29 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:54:00 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) {
+Weapon::Weapon(const std::string type) {
 	_type = type;
 }
 
-std::string Weapon::getType() {
+const std::string &Weapon::getType() const {
 	return _type;
 }
 
-void Weapon::setType(std::string type) {
+void Weapon::setType(const std::string type) {
 	_type = type;
 }
