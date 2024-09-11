@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:53:07 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 15:33:16 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 12:42:17 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void Zombie::announce() {
 
 void Zombie::setName( std::string name ) {
 	_name = name;
+	std::cout << "Zombie name was set to " << name << std::endl;
 }
