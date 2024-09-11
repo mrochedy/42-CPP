@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 14:03:31 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 11:07:11 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:07:03 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 class Contact {
 	public:
 		Contact();
 		Contact(std::string firstName, std::string lastName, std::string nickname,
 			std::string phoneNumber, std::string darkestSecret);
-		void display(int id);
+		void fastDisplay(int id);
+		void longDisplay();
 		bool getIsInitalized();
 	private:
 		std::string firstName_;

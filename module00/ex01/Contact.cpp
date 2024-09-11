@@ -6,28 +6,35 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 13:47:17 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/06 11:07:02 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:09:18 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 std::string adjustString(const std::string &str, std::size_t size) {
-    if (str.size() < size)
-        return std::string(size - str.size(), ' ') + str;
-    else if (str.size() > size)
-        return str.substr(0, size - 1) + ".";
-    return str;
+	if (str.size() > size)
+	 return str.substr(0, size - 1) + ".";
+	return str;
 }
 
-void Contact::display(int id) {
+void Contact::fastDisplay(int id) {
 	std::stringstream ss;
 
 	ss << id + 1;
-	std::cout << adjustString(ss.str(), 10) << '|'
-		<< adjustString(Contact::firstName_, 10) << '|'
-		<< adjustString(Contact::lastName_, 10) << '|'
-		<< adjustString(Contact::nickname_, 10) << std::endl;
+	std::cout << '|' << std::setw(10) << std::right << adjustString(ss.str(), 10);
+	std::cout << '|' << std::setw(10) << std::right << adjustString(firstName_, 10);
+	std::cout << '|' << std::setw(10) << std::right << adjustString(lastName_, 10);
+	std::cout << '|' << std::setw(10) << std::right << adjustString(nickname_, 10);
+	std::cout << '|' << std::endl;
+}
+
+void Contact::longDisplay() {
+	std::cout << "First name: " << firstName_ << std::endl;
+	std::cout << "Last name: " << lastName_ << std::endl;
+	std::cout << "Nickname: " << nickname_ << std::endl;
+	std::cout << "Phone number: " << phoneNumber_ << std::endl;
+	std::cout << "Darkest secret: " << darkestSecret_ << std::endl;
 }
 
 Contact::Contact() {
