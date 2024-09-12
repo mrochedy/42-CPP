@@ -6,13 +6,15 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 15:17:04 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/09 16:09:33 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:49:31 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -42,6 +44,12 @@ int main()
 	doggy.makeSound();
 	lil_cat.makeSound();
 	random_animal.makeSound();
+
+	const WrongAnimal *wrongCatAnimal = new WrongCat();
+	const WrongCat *wrongCat = new WrongCat();
+
+	wrongCatAnimal->makeSound();
+	wrongCat->makeSound();
 
 	return 0;
 }
