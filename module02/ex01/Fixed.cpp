@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:05:12 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/07 18:05:08 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:06:47 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const int nb) {
 
 Fixed::Fixed(const float nb) {
 	std::cout << "Float constructor called" << std::endl;
-	_rawVal = std::roundf(nb * (1 << _nbFractBits));
+	_rawVal = roundf(nb * (1 << _nbFractBits));
 }
 
 Fixed::Fixed(const Fixed &fixed) {
