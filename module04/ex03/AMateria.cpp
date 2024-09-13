@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:14:53 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/11 11:20:02 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:51:44 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,5 @@ AMateria &AMateria::operator=(const AMateria &other) {
 std::string const & AMateria::getType() const {
 	return _type;
 }
+
+void AMateria::use(ICharacter&) {}

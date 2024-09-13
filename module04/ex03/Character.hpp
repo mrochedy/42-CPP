@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:57:11 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/11 12:00:56 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:03:28 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ class Character : public ICharacter
 		std::string const & getName() const;
 		void equip(AMateria* m);
 		void unequip(int idx);
+		AMateria *getMateriaAddr(int idx);
 		void use(int idx, ICharacter& target);
 
 	private:
 		std::string _name;
 		AMateria *_inventory[4];
-		AMateria *_floor[1000];
 };
 
 #endif

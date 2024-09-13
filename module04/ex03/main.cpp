@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 14:26:50 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/11 12:09:45 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:07:04 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,23 @@ int main()
 	attacker.use(0, defender);
 	attacker.use(1, defender);
 
+	AMateria *tmp0 = attacker.getMateriaAddr(0);
 	attacker.unequip(0);
+	delete tmp0;
 
 	attacker.use(0, defender);
 	attacker.use(1, defender);
 
+	AMateria *tmp1 = attacker.getMateriaAddr(1);
 	attacker.unequip(1);
+	delete tmp1;
 
 	attacker.use(0, defender);
 	attacker.use(1, defender);
 
+	AMateria *tmp2 = attacker.getMateriaAddr(1);
 	attacker.unequip(2);
+	delete tmp2;
 
 	return 0;
 }

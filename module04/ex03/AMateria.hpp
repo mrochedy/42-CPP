@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:10:57 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/10 18:26:27 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:51:50 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AMateria
 
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter&) {}
+		virtual void use(ICharacter&);
 
 	protected:
 		std::string _type;
