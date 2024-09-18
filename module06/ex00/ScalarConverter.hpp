@@ -2,8 +2,11 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <sstream>
+# include <iomanip>
 # include <string>
+# include <climits>
+# include <float.h>
+# include <cstdlib>
 
 # define WHITE "\033[1;97m"
 # define GREEN "\033[1;32m"
