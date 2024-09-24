@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:26:31 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/18 13:09:08 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:06:23 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void fromNan() {
 }
 
 void fromChar(const std::string &literal) {
-	std::cout << WHITE << "char: " << literal[0] << RESET << std::endl;
+	std::cout << WHITE << "char: '" << literal[0] << "'" << RESET << std::endl;
 	std::cout << WHITE << "int: " << static_cast<int>(literal[0]) << RESET << std::endl;
 	std::cout << WHITE << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(literal[0]) << 'f' << RESET << std::endl;
 	std::cout << WHITE << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(literal[0]) << RESET << std::endl;
@@ -59,7 +59,7 @@ void fromInt(const std::string &literal) {
 	int nb = lnb;
 
 	if (nb >= 32 && nb <= 126)
-		std::cout << WHITE << "char: " << static_cast<char>(nb) << RESET << std::endl;
+		std::cout << WHITE << "char: '" << static_cast<char>(nb) << "'" << RESET << std::endl;
 	else if (nb >= -128 && nb <= 127)
 		std::cout << ORANGE << "char: Non displayable" << RESET << std::endl;
 	else
@@ -74,7 +74,7 @@ void fromFloat(const std::string &literal) {
 	double nb = atof(literal.c_str());
 
 	if (nb >= 32 && nb <= 126)
-		std::cout << WHITE << "char: " << static_cast<char>(nb) << RESET << std::endl;
+		std::cout << WHITE << "char: '" << static_cast<char>(nb) << "'" << RESET << std::endl;
 	else if (nb >= -128 && nb <= 127)
 		std::cout << ORANGE << "char: Non displayable" << RESET << std::endl;
 	else
@@ -87,20 +87,24 @@ void fromFloat(const std::string &literal) {
 
 	if (nb >= -FLT_MAX && nb <= FLT_MAX)
 		std::cout << WHITE << "float: " << std::fixed << std::setprecision(1) << nb << 'f' << RESET << std::endl;
-	else
-		std::cout << ORANGE << "float: impossible" << RESET << std::endl;
+	else if (nb < -FLT_MAX)
+		std::cout << WHITE << "float: -inff" << RESET << std::endl;
+	else if (nb > FLT_MAX)
+		std::cout << WHITE << "float: inff" << RESET << std::endl;
 
 	if (nb >= -DBL_MAX && nb <= DBL_MAX)
 		std::cout << WHITE << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(nb) << RESET << std::endl;
-	else
-		std::cout << ORANGE << "double: impossible" << RESET << std::endl;
+	else if (nb < -DBL_MAX)
+		std::cout << WHITE << "double: -inf" << RESET << std::endl;
+	else if (nb > DBL_MAX)
+		std::cout << WHITE << "double: inf" << RESET << std::endl;
 }
 
 void fromDouble(const std::string &literal) {
 	double nb = atof(literal.c_str());
 
 	if (nb >= 32 && nb <= 126)
-		std::cout << WHITE << "char: " << static_cast<char>(nb) << RESET << std::endl;
+		std::cout << WHITE << "char: '" << static_cast<char>(nb) << "'" << RESET << std::endl;
 	else if (nb >= -128 && nb <= 127)
 		std::cout << ORANGE << "char: Non displayable" << RESET << std::endl;
 	else
@@ -113,13 +117,17 @@ void fromDouble(const std::string &literal) {
 
 	if (nb >= -FLT_MAX && nb <= FLT_MAX)
 		std::cout << WHITE << "float: " << std::fixed << std::setprecision(1) << static_cast<double>(nb) << 'f' << RESET << std::endl;
-	else
-		std::cout << ORANGE << "float: impossible" << RESET << std::endl;
+	else if (nb < -FLT_MAX)
+		std::cout << WHITE << "float: -inff" << RESET << std::endl;
+	else if (nb > FLT_MAX)
+		std::cout << WHITE << "float: inff" << RESET << std::endl;
 
 	if (nb >= -DBL_MAX && nb <= DBL_MAX)
 		std::cout << WHITE << "double: " << std::fixed << std::setprecision(1) << nb << RESET << std::endl;
-	else
-		std::cout << ORANGE << "double: impossible" << RESET << std::endl;
+	else if (nb < -DBL_MAX)
+		std::cout << WHITE << "double: -inf" << RESET << std::endl;
+	else if (nb > DBL_MAX)
+		std::cout << WHITE << "double: inf" << RESET << std::endl;
 }
 
 void ScalarConverter::convert(const std::string &literal) {
