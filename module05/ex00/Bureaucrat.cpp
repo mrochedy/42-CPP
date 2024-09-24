@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:25:30 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/16 11:23:36 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/24 09:54:11 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Bureaucrat::~Bureaucrat() {
 	std::cout << BLUE << "Bureaucrat destructor called" << RESET << std::endl;
 }
 
-const std::string Bureaucrat::getName() const {
+std::string Bureaucrat::getName() const {
 	return _name;
 }
 
