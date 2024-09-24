@@ -2,7 +2,7 @@ NAME = intern
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR = objs
 
