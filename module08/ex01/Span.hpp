@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 18:01:23 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/19 11:16:49 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:26:39 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <set>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 
 #define WHITE "\033[1;97m"
 #define GREEN "\033[1;32m"

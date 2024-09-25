@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 10:12:03 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/19 11:43:20 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:25:28 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Span::Span() : _maxLen(0) {}
 
 Span::Span(unsigned int n) : _maxLen(n) {}
 
-Span::Span(const Span &other) : _maxLen() {
+Span::Span(const Span &other) {
 	*this = other;
 }
 
@@ -46,12 +46,8 @@ unsigned int Span::shortestSpan() const {
 	it++;
 
 	unsigned int shortest = *it - *_store.begin();
-	unsigned int span;
-
 	for (; it != _store.end(); it++) {
-		span = *it - *prev;
-		if (span < shortest)
-			shortest = span;
+		shortest = std::min(shortest, static_cast<unsigned int>(*it - *prev));
 		prev = it;
 	}
 

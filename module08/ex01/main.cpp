@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 18:01:08 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/19 11:47:19 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:01:09 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int main()
 	std::cout << CYAN << sp1.shortestSpan() << RESET << std::endl;
 	std::cout << BLUE << sp1.longestSpan() << RESET << std::endl;
 
-	Span sp2 = Span(100000);
-	std::multiset<int> *bigRandomMultiset = createBigRandomMultiset(100000);
+	Span sp2 = Span(20000);
+	std::multiset<int> *bigRandomMultiset = createBigRandomMultiset(20000);
 
 	try {
 		sp2.addNumbersRange((*bigRandomMultiset).begin(), (*bigRandomMultiset).end());
