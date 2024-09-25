@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:12:38 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/18 17:55:59 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:29:24 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ValueNotFoundException : public std::exception {
 };
 
 template <typename T>
-typename T::iterator easyfind(T &container, const int to_find) {
+typename T::iterator easyfind(T &container, int to_find) {
 	typename T::iterator it;
 
 	it = std::find(container.begin(), container.end(), to_find);
