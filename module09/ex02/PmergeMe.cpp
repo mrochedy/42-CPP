@@ -6,7 +6,7 @@
 /*   By: mrochedy <mrochedy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:02:13 by mrochedy          #+#    #+#             */
-/*   Updated: 2024/09/27 15:09:57 by mrochedy         ###   ########.fr       */
+/*   Updated: 2024/09/27 15:33:18 by mrochedy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PmergeMe::PmergeMe(const PmergeMe &other) {
 PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
 	if (this != &rhs) {
 		_mainV = rhs._mainV;
-		_mainL = rhs._mainL;
+		_mainD = rhs._mainD;
 	}
 	return *this;
 }
@@ -30,10 +30,6 @@ PmergeMe::~PmergeMe() {}
 
 const std::vector<int> &PmergeMe::getMainV() const {
 	return _mainV;
-}
-
-const std::list<int> &PmergeMe::getMainL() const {
-	return _mainL;
 }
 
 const std::deque<int> &PmergeMe::getMainD() const {
@@ -57,7 +53,6 @@ void PmergeMe::addInteger(const char *str) {
 	int nb = lnb;
 
 	_mainV.push_back(nb);
-	_mainL.push_back(nb);
 	_mainD.push_back(nb);
 }
 
@@ -195,78 +190,4 @@ void PmergeMe::sortDeque() {
 	sortDeque();
 
 	_moveMinsBackToMainDeque(pendant);
-}
-
-void PmergeMe::_sortPairsList() {
-	for (std::list<int>::iterator it = _mainL.begin(); it != _mainL.end(); it++) {
-		std::list<int>::iterator prev = it;
-		it++;
-
-		if (it != _mainL.end()) {
-			if (*prev > *it) {
-				int tmp = *prev;
-				*prev = *it;
-				*it = tmp;
-			}
-		} else
-			it = prev;
-	}
-}
-
-void PmergeMe::_moveMinsToPendantList(std::list<int> &pendant) {
-	for (std::list<int>::iterator it = _mainL.begin(); it != _mainL.end(); it++) {
-		std::list<int>::iterator prev = it;
-
-		pendant.push_back(*prev);
-		it = _mainL.erase(prev);
-	}
-}
-
-void PmergeMe::_moveMinsBackToMainList(std::list<int> &pendant) {
-	size_t pendant_size = pendant.size();
-	size_t a = 1;
-	size_t b = 3;
-
-	std::list<int>::iterator valIt = pendant.begin();
-
-	while (pendant_size > 0 && pendant.back() >= 0) {
-		while (valIt != pendant.end() && *valIt >= 0) {
-			std::list<int>::iterator pos;
-			if (*valIt < _mainL.front())
-				pos = _mainL.begin();
-			else
-				pos = std::lower_bound(_mainL.begin(), _mainL.end(), *valIt);
-
-			_mainL.insert(pos, *valIt);
-			*valIt = -1;
-			if (valIt != pendant.begin())
-				valIt--;
-		}
-
-		size_t tmp = a;
-		a = b;
-		b += 2 * tmp;
-
-		valIt = pendant.begin();
-
-		std::list<int>::iterator last = pendant.end();
-		last--;
-
-		for (size_t j = 0; j != a - 1 && valIt != last; j++)
-			valIt++;
-	}
-}
-
-void PmergeMe::sortList() {
-	_sortPairsList();
-
-	if (_mainL.size() <= 2)
-		return ;
-
-	std::list<int> pendant;
-	_moveMinsToPendantList(pendant);
-
-	sortList();
-
-	_moveMinsBackToMainList(pendant);
 }
