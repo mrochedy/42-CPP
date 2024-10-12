@@ -4,6 +4,8 @@ Welcome to my complete implementation of the **CPP Piscine** modules, completed 
 
 Here, you'll find carefully crafted solutions to each exercise, showcasing my understanding of various C++ concepts, from basics to advanced topics. While my submissions were thoroughly reviewed, occasional errors may still exist, and constructive feedback is always welcome.
 
+<img width="264" alt="100/100 grades on each module" src="https://github.com/user-attachments/assets/e604d833-44b3-4ae0-8ca7-5d3d041f2b25">
+
 ## About the Project
 
 The **CPP Piscine** is an introduction to the world of C++, featuring a variety of modules that guide us from foundational C++ concepts to more advanced programming techniques. The purpose of this repository is to share my solutions to the **42 CPP Piscine** modules. These modules were completed by **Maxime Rochedy**, under the login **mrochedy**, during my time at **42**.
